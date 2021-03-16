@@ -80,12 +80,13 @@ class my_sparse_mm(torch.autograd.Function):
     called "my_sparse_mm", by subclassing torch.autograd.Function
     and implementing the forward and backward passes.
     """
-
-    def forward(self, W, x):  # W is SPARSE
-        self.save_for_backward(W, x)
+    @staticmethod
+    def forward(ctx, W, x):  # W is SPARSE
+        ctx.save_for_backward(W, x)
         y = torch.mm(W, x)
         return y
 
+    @staticmethod
     def backward(self, grad_output):
         W, x = self.saved_tensors
         grad_input = grad_output.clone()

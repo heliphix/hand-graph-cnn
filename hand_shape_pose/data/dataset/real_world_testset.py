@@ -64,8 +64,8 @@ class RealWorldTestSet(torch.utils.data.Dataset):
         if save_results:
             eval_results = {}
             image_ids = results_pose_cam_xyz.keys()
-            image_ids.sort()
-            eval_results["image_ids"] = np.array(image_ids)
+            sorted(image_ids)
+            eval_results["image_ids"] = np.array(list(image_ids))
             eval_results["gt_pose_xyz"] = [self.pose_gts[image_id].unsqueeze(0) for image_id in image_ids]
             eval_results["est_pose_xyz"] = [results_pose_cam_xyz[image_id].unsqueeze(0) for image_id in image_ids]
             eval_results["gt_pose_xyz"] = torch.cat(eval_results["gt_pose_xyz"], 0).numpy()
