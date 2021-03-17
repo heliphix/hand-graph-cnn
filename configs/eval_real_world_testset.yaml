@@ -12,6 +12,6 @@ GRAPH:
 EVAL:
   SAVE_DIR: "./output"
   SAVE_BATCH_IMAGES_PRED: True
-  PRINT_FREQ: 5
+  PRINT_FREQ: 1
   SAVE_POSE_ESTIMATION: True
   DATASET: "real_world_testset"

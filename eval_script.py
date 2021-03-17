@@ -85,7 +85,7 @@ def main():
 
         if i % cfg.EVAL.PRINT_FREQ == 0:
             # 4. evaluate pose estimation
-            avg_est_error = dataset_val.evaluate_pose(results_pose_cam_xyz, save_results=False)  # cm
+            avg_est_error = dataset_val.evaluate_pose(results_pose_cam_xyz, save_results=True)  # cm
             msg = 'Evaluate: [{0}/{1}]\t' 'Average pose estimation error: {2:.2f} (mm)'.format(
                 len(results_pose_cam_xyz), len(dataset_val), avg_est_error * 10.0)
             logger.info(msg)
